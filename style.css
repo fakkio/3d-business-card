@@ -1,3 +1,16 @@
+@font-face {
+  font-family: "Myriad";
+  font-style: normal;
+  font-weight: 700;
+  src: url(fonts/myriad-bold.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Myriad";
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/myriad-regular.woff2) format("woff2");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +18,7 @@
 }
 
 body {
-  font-family: "Myriad Pro", sans-serif;
+  font-family: "Myriad", sans-serif;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -27,8 +40,94 @@ body {
 
 .card {
   transform-style: inherit;
+  background: url("images/business-card-empty.png");
+  background-size: 100%;
   width: 8.5cm;
   height: 5.5cm;
   border-radius: 0.05cm;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  transform-style: inherit;
+  display: flex;
+  flex: 0;
+}
+
+.qr-code {
+  transform-style: inherit;
+  flex: 0 0 2.74cm;
+}
+
+.data {
+  transform-style: inherit;
+  flex: 1;
+}
+
+.name {
+  transform-style: inherit;
+  font-size: 0.725cm;
+  margin-top: 0.7cm;
+  letter-spacing: -0.014cm;
+  font-weight: 700;
+  color: white;
+  transition: 0.75s ease-out;
+}
+
+.profession {
+  display: block;
+  margin-top: -0.07cm;
+  font-size: 0.4cm;
+  letter-spacing: 0.005cm;
+  color: white;
+  transition: 0.75s ease-out;
+}
+
+.contacts {
+  display: grid;
+  grid-template-columns: 0.88cm auto;
+  grid-auto-rows: 0.58cm;
+  column-gap: 0.1cm;
+  margin-top: 0.16cm;
+  margin-bottom: 0.19cm;
+  align-items: center;
+  transition: 0.75s ease-out;
+}
+
+.contacts-icon {
+  justify-self: end;
+  display: flex;
+}
+
+.cell-icon img {
+  height: 0.394cm;
+}
+.email-icon img,
+.website-icon img {
+  width: 0.363cm;
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  transition: 0.75s ease-out;
+}
+
+.letter {
+  height: 0.83cm;
+  margin-right: 0.1cm;
+}
+.letter img {
+  height: 100%;
+}
+
+.footer > div {
+  font-size: 0.17cm;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #edf1f1;
 }
