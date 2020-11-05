@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Myriad Pro", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1500px;
+}
+
+.container {
+  height: 11cm;
+  width: 17cm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  transform-style: preserve-3d;
+  width: 8.5cm;
+  height: 5.5cm;
+  border-radius: 0.05cm;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.2);
+}
