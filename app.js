@@ -1,6 +1,11 @@
 const card = document.querySelector(".card");
 const container = document.querySelector(".container");
 
+const name = document.querySelector(".name");
+const profession = document.querySelector(".profession");
+const contacts = document.querySelector(".contacts");
+const footer = document.querySelector(".footer");
+
 let touchEndTimer;
 
 const mouseMove = (e) => {
@@ -24,6 +29,11 @@ const mouseMove = (e) => {
 
 const mouseEnter = () => {
   card.style.transition = "none";
+
+  name.style.transform = "translateZ(50px)";
+  profession.style.transform = "translateZ(30px)";
+  contacts.style.transform = "translateZ(40px)";
+  footer.style.transform = "translateZ(20px)";
 };
 
 const mouseLeave = () => {
@@ -31,6 +41,11 @@ const mouseLeave = () => {
   card.style.transform = "rotateY(0) rotateX(0)";
   card.style.boxShadow =
     "0 20px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.2)";
+
+  name.style.transform = "translateZ(0)";
+  profession.style.transform = "translateZ(0)";
+  contacts.style.transform = "translateZ(0)";
+  footer.style.transform = "translateZ(0)";
 };
 
 container.addEventListener("mousemove", mouseMove);
