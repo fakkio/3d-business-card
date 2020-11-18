@@ -83,7 +83,11 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  backface-visibility: hidden; /* testare */
+  backface-visibility: hidden;
+  border-radius: 0.05cm;
+
+  /* Fix firefox displaying back content on front face  when translate to 0px */
+  transform: translateZ(0.01cm);
 }
 
 .card-front {
