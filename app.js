@@ -1,10 +1,16 @@
-const card = document.querySelector(".card");
 const container = document.querySelector(".container");
+const card = document.querySelector(".card");
+const cardFront = document.querySelector(".card-front");
+const cardBack = document.querySelector(".card-back");
+const flipButton = document.querySelector(".flip-btn");
 
 const name = document.querySelector(".name");
 const profession = document.querySelector(".profession");
 const contacts = document.querySelector(".contacts");
 const footer = document.querySelector(".footer");
+
+const logo = document.querySelector(".logo");
+const amp = document.querySelector(".amp");
 
 let touchEndTimer;
 
@@ -14,12 +20,14 @@ const mouseMove = (e) => {
     touch = e.changedTouches[0];
   }
 
+  const isFlipped = card.classList.contains("is-flipped");
+
   const centerX = window.innerWidth / 2;
   const centerY = window.innerHeight / 2;
   const deltaX = (e.pageX || touch.pageX) - centerX;
   const deltaY = (e.pageY || touch.pageY) - centerY;
-  const rotateY = deltaX / 15;
-  const rotateX = -deltaY / 15;
+  const rotateY = (isFlipped ? 180 : 0) + deltaX / 15;
+  const rotateX = ((isFlipped ? 1 : -1) * deltaY) / 15;
 
   const shadowY = 25 - (deltaY + 210) / 42; // ~ 15 -> 25
 
@@ -34,11 +42,16 @@ const mouseEnter = () => {
   profession.style.transform = "translateZ(30px)";
   contacts.style.transform = "translateZ(40px)";
   footer.style.transform = "translateZ(20px)";
+
+  logo.style.transform = "translateZ(40px)";
+  amp.style.transform = "translateZ(60px)";
 };
 
 const mouseLeave = () => {
+  const isFlipped = card.classList.contains("is-flipped");
+
   card.style.transition = "all 0.5s ease";
-  card.style.transform = "rotateY(0) rotateX(0)";
+  card.style.transform = null; // `rotateY(${isFlipped ? 180 : 0}deg) rotateX(0)`;
   card.style.boxShadow =
     "0 20px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.2)";
 
@@ -46,7 +59,20 @@ const mouseLeave = () => {
   profession.style.transform = "translateZ(0)";
   contacts.style.transform = "translateZ(0)";
   footer.style.transform = "translateZ(0)";
+
+  logo.style.transform = "translateZ(0)";
+  amp.style.transform = "translateZ(0)";
 };
+
+const flipCard = () => {
+  card.style.transition = "all 0.5s ease";
+  card.classList.toggle("is-flipped");
+  setTimeout(() => {
+    card.style.transition = "none";
+  }, 500);
+};
+
+flipButton.addEventListener("click", flipCard);
 
 container.addEventListener("mousemove", mouseMove);
 container.addEventListener("mouseenter", mouseEnter);
