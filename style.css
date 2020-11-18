@@ -19,7 +19,10 @@
 
 body {
   font-family: "Myriad", sans-serif;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
